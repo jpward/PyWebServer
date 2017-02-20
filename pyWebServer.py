@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import socket
 from optparse import OptionParser
+from subprocess import call
 
 parser=OptionParser()
 parser.add_option("-v", "--verbose", action="store_true", dest="verbose", default=False, help="print verbose status messages")
@@ -28,4 +29,6 @@ HTTP/1.1 200 OK
 Hello, World!
 """
     client_connection.sendall(http_response)
+    call(["touch", "some_file"])
+
     client_connection.close()
